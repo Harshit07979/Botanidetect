@@ -139,15 +139,7 @@ This roadmap provides a high-level overview of BotaniBrain's development phases 
 
 ---
 
-## 🤝 Contributing
 
-Contributions are welcome! Here are several ways you can contribute:
-
-- **[Submit Pull Requests](https://github.com/guillaumefalvet/server-chatapp-nestjs/blob/main/CONTRIBUTING.md)**: Review open PRs, and submit your own PRs.
-- **[Join the Discussions](https://github.com/guillaumefalvet/server-chatapp-nestjs/discussions)**: Share your insights, provide feedback, or ask questions.
-- **[Report Issues](https://github.com/guillaumefalvet/server-chatapp-nestjs/issues)**: Submit bugs found or log feature requests for GUILLAUMEFALVET.
-
-#### *Contributing Guidelines*
 
 <details closed>
 <summary>Click to expand</summary>
@@ -178,20 +170,15 @@ Once your PR is reviewed and approved, it will be merged into the main branch.
 
 ---
 
-## 📄 License
 
-
-This project is protected under the [MIT](https://choosealicense.com/licenses/mit/) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/mit/) file.
-
----
 
 ## 👏 Acknowledgments
 
 We would like to express our heartfelt gratitude to the following contributors who have dedicated their time and expertise to enhance BotaniBrain:
 
-- **[ADITYA KUMAR](https://github.com/shrivastavaditya)** 
-- **[STUTI GUPTA](https://github.com/24stuti)** 
-- **[SHUBHAM SHARMA](https://github.com/shubhusion)** 
+- **[HARSHIT GUPTA](https://github.com/Harshit07979)** 
+- **[HRITU RAJ](https://github.com/hritu8)** 
+ 
 
 Your contributions, whether in code, bug reports, feature suggestions, or discussions, have been invaluable in shaping and improving BotaniBrain. Thank you for your dedication and support!
 
