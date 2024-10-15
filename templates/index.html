@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>BotaniBrain</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="shortcut icon" href="static\uploads\logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</head>
+<body class="h-14 bg-gradient-to-r from-green-400  via-green-300  to-green-600 ">
+    <header class="bg-[#0a670a] text-gray-100">
+        <nav class="flex justify-between items-center w-[92%] mx-auto">
+            <div>
+                <img src="static\uploads\logo.png" class="w-20 m-2 p-2 rounded-2xl" alt="">
+            </div>
+            <div class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-10">
+                    <li>
+                        <a class="hover:text-green-500" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="potato.html" target="_blank">Potato</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="wheat.html" target="_blank">Wheat</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="rice.html" target="_blank">Rice</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="sugarcane.html" target="_blank">Sugarcane</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="corn.html" target="_blank">Corn</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="education.html" target="_blank">Training</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="service.html" target="_blank">Services</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="about.html" target="_blank">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="flex items-center gap-6">
+            <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        </div>
+    </header>
+
+    <!-- logo image class float-left -->
+    <div class="text-center w-full text-4xl font-bold mt-10 mb-10">
+        BotaniBrain
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-20 place-items-center justify-items-center items-center justify-around text-center">
+
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-jar-wheat animate-bounce text-2xl"></i><br>
+            <a href="wheat.html" target="_blank" class="go text-lg p-2 font-semibold">Wheat Diseases</a><br>
+            <a href="wheat.html" target="_blank">It can detect Brown Rust Diseases and Yellow Rust Diseases in wheat and help you with your queries.</a><br>
+        </div>
+
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-bowl-rice animate-bounce text-2xl"></i><br>
+            <a href="rice.html" target="_blank" class="go text-lg p-2 font-semibold">Rice Diseases</a><br>
+            <a href="rice.html" target="_blank">It can detect Brown Spot Diseases, Leaf Blast Diseases and Neck Blast Diseases in rice and help you.</a><br>
+        </div>
+
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-cookie-bite animate-bounce text-2xl"></i><br>
+            <a href="potato.html" target="_blank" class="go text-lg p-2 font-semibold">Potato Diseases</a><br>
+            <a href="potato.html" target="_blank">It can detect Early Blight Diseases and Late Blight Diseases in potato and help you with your queries.</a><br>
+        </div>
+        
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-bottle-droplet animate-bounce text-2xl"></i><br>
+            <a href="corn.html" target="_blank" class="go text-lg p-2 font-semibold">Corn Diseases</a><br>
+            <a href="corn.html" target="_blank">It can detect Common Rust Diseases, Gray Leaf Diseases and Northern Leaf Blight Diseases in corn and help you.</a><br>
+        </div>
+
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-cubes-stacked animate-bounce text-2xl"></i><br>
+            <a href="sugarcane.html" target="_blank" class="go text-lg p-2 font-semibold">Sugarcane Diseases</a><br>
+            <a href="sugarcane.html" target="_blank">It can detect Red Rot Diseases and Bacterial Blight Diseases in sugarcane and help you with your queries.</a><br>
+        </div>
+
+        <div class="box bg-green-500 p-4 rounded-2xl shadow-2xl hover:bg-green-700 hover:scale-[1.09] transform transition duration-300">
+            <i class="fa-solid fa-person-chalkboard animate-bounce text-2xl"></i><br>
+            <a href="education.html" target="_blank" class="go text-lg p-2 font-semibold">Training Resources</a><br>
+            <a href="education.html" target="_blank">How to take care of your crop? What should be done to protect them? If diseases got detected,how to tackle them?</a><br>
+        </div>
+    </div>
+    <footer class="mt-10">
+        <div class="p-10 bg-[#111827] text-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div class="mb-4">
+                        <h4 class="text-lg pb-4 ">BotaniBrain</h4>
+                        <p class="text-gray-400">
+                            Jaypee Institute Of <br> Information Technology,<br> Noida, India<br> <br>
+
+                            <strong>Phone :</strong> +91 86904 09766<br>
+                            <strong>Email :</strong> adityaryk123@gmail.com
+                        </p>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Useful Links</h4>
+                        <ul class="text-gray-400">
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="index.html" target="_blank">Home</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="about.html" target="_blank">About Us</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="education.html" target="_blank">Training</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="term.html" target="_blank">Terms of Services</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="https://www.privacy-policy-template.com/live.php?token=raSLtnhkTEvFDnII76kgQOiTljCzMEBl" target="_blank">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Our Services</h4>
+                        <ul class="text-gray-400">
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="wheat.html" target="_blank">Wheat</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="rice.html" target="_blank">Rice</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="potato.html" target="_blank">Potato</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="corn.html" target="_blank">Corn</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="sugarcane.html" target="_blank">Sugarcane</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Join Our NewsLetter</h4>
+                        <p class="text-gray-400 pb-2">Join us for new tips, tutorials, and more...</p>
+                        <form action="" class="flex flex-row flex-wrap">
+                            <input type="text" name="" id="" class="text-gray-400 w-2/3 p-2 focus:border-green-500" placeholder="email@example.com">
+                            <button class="p-2 w-1/3 bg-green-500 text-white hover:bg-green-700">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full bg-gray-900 text-gray-500 px-10">
+            <div class="max-w-7xl flex flex-col sm:flex-row py-4 mx-auto justify-around items-center">
+                <div class="text-center">
+                    <div>
+                        <i class="fa fa-copyright"></i> 2023 Copyright <strong><span>BotaniBrain</span></strong>. All Rights Reserved.
+                    </div>
+                    <div>
+                        Designed by <a href="https://www.linkedin.com/in/aditya-shrivastava-14b6a6222/" class="text-green-500">Aditya Kumar</a>
+                    </div>
+                </div>
+                <div class="text-center text-xl text-white mb-2">
+                    <a href="mailto:adityaryk123@gmail.com" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/shrivastava_aditya_/#" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100009027675998" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-facebook"></i></a>
+                    <a href="https://github.com/shrivastavaditya" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aditya-shrivastava-14b6a6222/" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+</body>
+</html>

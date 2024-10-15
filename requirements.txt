@@ -1,0 +1,6 @@
+Flask
+Werkzeug
+nltk
+numpy
+Pillow
+scikit-learn

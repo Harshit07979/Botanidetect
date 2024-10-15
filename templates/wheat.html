@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wheat Diseases Detection</title>
+    <link rel="shortcut icon" href="static\uploads\logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <style>
+        #badadiv {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        #left {
+            width: 50%;
+        }
+        #right {
+            width: 50%;
+        }
+    </style>
+</head>
+<body class="h-14 bg-gradien-to-r from-green-400  via-green-300  to-green-600">
+    <header class="bg-[#0a670a] text-gray-100">
+        <nav class="flex justify-between items-center w-[92%] mx-auto">
+            <div>
+                <img src="static\uploads\logo.png" class="w-20 m-2 p-2 rounded-2xl" alt="">
+            </div>
+            <div class="nav-links duration-500 md:static absolute md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+                <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-10">
+                    <li>
+                        <a class="hover:text-green-500" href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="potato.html" target="_blank">Potato</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="wheat.html" target="_blank">Wheat</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="rice.html" target="_blank">Rice</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="sugarcane.html" target="_blank">Sugarcane</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="corn.html" target="_blank">Corn</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="education.html" target="_blank">Training</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="service.html" target="_blank">Services</a>
+                    </li>
+                    <li>
+                        <a class="hover:text-green-500" href="about.html" target="_blank">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="flex items-center gap-6">
+            <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+        </div>
+    </header>
+    <div class="flex text-white bg-yellow-200">
+        <div class="right w-full text-white flex justify-center items-center flex-col">
+            <div class="text-center text-green-900 w-full text-4xl font-bold mt-10 mb-10">
+                BotaniBrain
+            </div>
+
+            <div class="left flex justify-center items-center">
+                <div id="badadiv" class="flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0 bg-green-700 w-full p-8 rounded-2xl shadow-2xl text-white overflow-hidden">
+                    <div id="left" class="flex flex-col space-y-8 justify-around">
+                        <h1 class="font-bold text-2xl tracking-wide justify-center items-center">
+                            Wheat Diseases Detection
+                        </h1>
+                        <p class="text-sm pt-2">
+                            Upload an image of the leaf of your Wheat Crop which needs to be predicted. The diseases which can be detected are Wheat Brown Rust and Wheat Yellow Rust. It will answer the plant as Healthy Wheat if no disease is found in your plant.
+                        </p>
+                        <form method="post" action="/wheat.html" enctype="multipart/form-data">
+                            <dl>
+                                <p>
+                                    <input type="file" name="file" autocomplete="off" style="width: 50%;" required>
+                                </p>
+                            </dl>
+                            <br>
+                            <p class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer inline-block">
+                                <input type="submit" value="Predict" class="w-full h-full opacity-0 cursor-pointer">
+                            </p>
+                            
+                        </form>
+                        <p>
+                            {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul>
+                                {% for message in messages %}
+                                  <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+                        </p>
+                        {% if filename %}
+                        <div class="max-w-1/2">
+                            <img src="{{ url_for('display', filename=filename) }}">
+                        </div>
+                        {% endif %}
+                        {% if predicted_class_name %}
+                        <div>
+                            <h3>Predicted Disease:</h3>
+                            <p>{{ predicted_class_name }}</p>
+                        </div>
+                        {% endif %}
+                        {% if error_message %}
+                            <div>
+                                <h3>Error:</h3>
+                                <p>{{ error_message }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div id="right" class="right relative flex w-full h-full justify-center items-center">
+                        <div id="chat-container" class="relative z-10 bg-slate-200 w-4/5 h-5/6 p-2 rounded-2xl shadow-2xl text-gray-800 md:w-120">
+                                <!-- Chat messages will be displayed here -->
+                            <div class="flex flex-row bg-gradient-to-r from-yellow-200 to bg-lime-300 w-full h-20 rounded-t-2xl rounded-b-md self-start">
+                                <p class="flex flex-col justify-center items-center self-center mt-4 p-4 text-md text-bold text-center text-gray-700 ">Ask your queries here.. We are always here to assist you!!</p>
+                            </div>
+                            <div id="chatbox" class="flex flex-col space-y-2 p-2 overflow-y-auto h-96">
+                                <div id="ansbox" class="bg-lime-100 max-w-xs p-2 text-gray-800 rounded-lg rounded-bl-none self-start">Write your query..</div>
+                                <div id="qstnbox" class="bg-green-200 max-w-xs  text-gray-800 rounded-lg rounded-bl-none self-end"></div>
+                        
+                                <!-- <div id="ansbox" class="bg-lime-100 max-w-xs p-2 text-gray-800 rounded-md rounded-bl-none"></div>
+                                <div class="flex space-x-3 self-end">
+                                    <img src="" alt="" class="rounded-full h-8 w-8">
+                                </div>   -->
+                                
+                            </div>
+                            
+                            <input class="bg-white flex flex-row justify-between items-center p-1 rounded-full w-full h-14 shadow-md text-gray-800 mt-3 text-left text-xs self-end" type="text" id="user-input" placeholder="Type a message...">
+                            
+                                <input class="bg-white flex flex-row justify-between items-center p-1 rounded-full w-full h-14 shadow-md text-gray-800 mt-3 text-left text-xs self-end" type="text" id="user-response" placeholder="Provide your response...">
+                            
+                                <button onclick="sendMessage()" class="flex justify-center items-center w-7 h-7 bg-green-950 text-white rounded-full">
+                                 <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="mt-10">
+        <div class="p-10 bg-[#111827] text-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div class="mb-4">
+                        <h4 class="text-lg pb-4 ">BotaniBrain</h4>
+                        <p class="text-gray-400">
+                            Jaypee Institute Of <br> Information Technology,<br> Noida, India<br> <br>
+
+                            <strong>Phone :</strong> +91 86904 09766<br>
+                            <strong>Email :</strong> adityaryk123@gmail.com
+                        </p>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Useful Links</h4>
+                        <ul class="text-gray-400">
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="index.html" target="_blank">Home</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="about.html" target="_blank">About Us</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="education.html" target="_blank">Training</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="term.html" target="_blank">Terms of Services</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="https://www.privacy-policy-template.com/live.php?token=raSLtnhkTEvFDnII76kgQOiTljCzMEBl" target="_blank">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Our Services</h4>
+                        <ul class="text-gray-400">
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="wheat.html" target="_blank">Wheat</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="rice.html" target="_blank">Rice</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="potato.html" target="_blank">Potato</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="corn.html" target="_blank">Corn</a></li>
+                            <li class="pb-4 hover:text-green-500"><i class="fa fa-chevron-right px-4 text-green-500"></i><a href="sugarcane.html" target="_blank">Sugarcane</a></li>
+                        </ul>
+                    </div>
+                    <div class="mb-5">
+                        <h4 class="text-lg pb-4">Join Our NewsLetter</h4>
+                        <p class="text-gray-400 pb-2">Join us for new tips, tutorials, and more...</p>
+                        <form action="" class="flex flex-row flex-wrap">
+                            <input type="text" name="" id="" class="text-gray-400 w-2/3 p-2 focus:border-green-500" placeholder="email@example.com">
+                            <button class="p-2 w-1/3 bg-green-500 text-white hover:bg-green-700">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full bg-gray-900 text-gray-500 px-10">
+            <div class="max-w-7xl flex flex-col sm:flex-row py-4 mx-auto justify-around items-center">
+                <div class="text-center">
+                    <div>
+                        <i class="fa fa-copyright"></i> 2023 Copyright <strong><span>BotaniBrain</span></strong>. All Rights Reserved.
+                    </div>
+                    <div>
+                        Designed by <a href="https://www.linkedin.com/in/aditya-shrivastava-14b6a6222/" class="text-green-500">Aditya Kumar</a>
+                    </div>
+                </div>
+                <div class="text-center text-xl text-white mb-2">
+                    <a href="mailto:adityaryk123@gmail.com" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-envelope"></i></a>
+                    <a href="https://www.instagram.com/shrivastava_aditya_/#" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100009027675998" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-facebook"></i></a>
+                    <a href="https://github.com/shrivastavaditya" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aditya-shrivastava-14b6a6222/" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-700 mx-1 inline-block pt-1"><i class="fa fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Display user message
+        //const userMessageElement = document.createElement("p");
+        //userMessageElement.textContent = "You: " + userMessage;
+        //document.getElementById("chat-container").appendChild(userMessageElement);
+
+
+        function sendMessage() {
+            const userMessage = document.getElementById("user-input").value;
+            const userResponse = document.getElementById("user-response").value; // Get user response
+            document.getElementById("user-response").value = ""; // Clear user response input field
+
+
+
+            const chatbox= document.getElementById("chatbox");
+
+            //display message
+            const qstnbox = document.createElement("div");
+            qstnbox.textContent =  userMessage;
+            qstnbox.id= qstnbox;
+            qstnbox.classList.add("bg-green-200", "max-w-xs", "p-2", "text-gray-800", "rounded-lg", "rounded-bl-none", "self-end");
+            chatbox.appendChild(qstnbox);
+
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            
+            // Send user message to the server and get a response
+            fetch("/send_message1", {
+                method: "POST",
+                body: JSON.stringify({ message: userMessage , user_response: userResponse}),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+
+                    // Display bot's response
+                    const ansbox = document.createElement("div");
+                    ansbox.textContent = data.message;
+                    ansbox.id= ansbox;
+                    ansbox.classList.add("bg-lime-100", "max-w-xs", "p-2", "text-gray-800", "rounded-lg", "rounded-bl-none");
+                    chatbox.appendChild(ansbox);
+
+                    chatbox.scrollTop = chatbox.scrollHeight;
+                    if(data.message!="Please enter a response before continuing..as we don't have this in our data.."){
+                        document.getElementById("user-input").value = ""; 
+                    } 
+                });
+              
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                // Simulate a click on the button when Enter is pressed
+                sendMessage();
+            }
+        });    
+        
+    </script>
+    <script>
+        const navLinks = document.querySelector('.nav-links')
+
+        function onToggleMenu(e) {
+            e.name = e.name === 'menu' ? 'close' : 'menu'
+            navLinks.classList.toggle('top-[9%]')
+        }
+    </script>
+</body>
+</html>
+
+

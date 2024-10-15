@@ -1,0 +1,17 @@
+{
+  "name": "cnn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minor": "npx tailwindcss -i ./static/input.css -o ./static/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.2",
+    "tailwindcss": "^3.3.5"
+  }
+}
